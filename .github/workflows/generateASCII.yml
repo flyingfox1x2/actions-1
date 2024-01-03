@@ -18,5 +18,6 @@ jobs:
               run: | 
                  echo "Hello world!!"
                  ls -lrta
+                 cat dragon.txt
             
             
