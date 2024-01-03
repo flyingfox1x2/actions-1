@@ -1,0 +1,22 @@
+name: My First Workflow
+
+on: push
+
+jobs:
+    ascii_art:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout
+              uses: actions/checkout@v4
+            - name: Install Cowsay package
+              run: sudo apt-get install cowsay -y 
+            - name: Execute cowsay cmd
+              run: cowsay -f dragon "Run for Cover, I am a dragon RAAAWWWWRRRRRR ...." >> dragon.txt
+            - name: Test file exists
+              run: grep -i "dragon" dragon.txt
+            - name: List and read files
+              run: | 
+                 echo "Hello world!!"
+                 ls -lrta
+            
+            
