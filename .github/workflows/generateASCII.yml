@@ -1,20 +1,37 @@
-name: Ascii workflow
+name: Multijob workflow
 
 on: push
 
 jobs:
-    ascii_art:
+    build_job1:
         runs-on: ubuntu-latest
         steps:
-            - name: checkout
-              uses: actions/checkout@v4
+            - name: Install cowsay package
+              run: sudo apt-get install cowsay -y
+
+            - name: Execute the cowsay command
+              run: cowsay -f dragon "Run for cover, I am a Dragon .... RAAWWWWRRRRRR" >> dragon.txt
+
+            - name: sleep for 30 seconds
+              run: sleep 30 
+                
+                
+    
+    test_job2:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Search for dragon
+              run: grep -i "dragon" dragon.txt
+    
+    
+    test_job3:
+        runs-on: ubuntu-latest
+        steps:
             - name: List the files
               run: ls -lrta
-            - name: Executing shell script
-              run: |
-                chmod +x ascii-script.sh 
-                ./ascii-script.sh
 
+            - name: display the contents of file
+              run: cat dragon.txt
                  
             
             
