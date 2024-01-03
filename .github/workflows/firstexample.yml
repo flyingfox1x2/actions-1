@@ -12,6 +12,6 @@ jobs:
               run: | 
                  echo "Hello world!!"
                  ls -lrta
-                 cat README.md
+                 cat dragon.txt
             - name: generate ASCII artwork
               run: cowsay -f dragon "Run for Cover, I am a dragon RAAAWWWWRRRRRR ...." >> dragon.txt
